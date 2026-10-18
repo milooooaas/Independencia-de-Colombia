@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Un espacio interactivo para aprender sobre la Independencia de Colombia.">
+    <title>La Independencia de Colombia</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell" id="app">
+      <aside class="sidebar">
+        <div class="brand-mark">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAKBkuoIvNUvhV1UwmlGZqa49-LKrxBdYNQ4FTYxbzIlbps3CexZ0M5gM&amp;s=10" alt="Logo de Colombia aprende">
+          <div><strong>¡Viva!</strong><small>Colombia aprende</small></div>
+        </div>
+        <p class="menu-caption">Explora</p>
+        <nav class="main-nav" aria-label="Menú principal">
+          <button type="button" class="active" data-section="Inicio"><span>⌂</span>Inicio</button>
+          <button type="button" data-section="Independencia"><span>✦</span>Independencia</button>
+          <button type="button" data-section="Historia"><span>▤</span>Historia</button>
+          <button type="button" data-section="Causas"><span>◌</span>Causas</button>
+          <button type="button" data-section="Desarrollo"><span>➜</span>Desarrollo</button>
+          <button type="button" data-section="Personajes"><span>♙</span>Personajes</button>
+          <button type="button" data-section="Juegos"><span>✹</span>Juegos</button>
+          <button type="button" data-section="Videos"><span>▶</span>Videos</button>
+          <button type="button" data-section="Recursos"><span>▣</span>Recursos</button>
+        </nav>
+        <div class="sidebar-note"><span>☼</span><strong>Tu rincón creativo</strong><small>Agrega dibujos, textos y aventuras.</small></div>
+      </aside>
+
+      <section class="main-column" id="contenido">
+        <header class="topbar">
+          <div class="search-wrap">
+            <div class="search-box">
+              <span>⌕</span>
+              <input id="search-input" aria-label="Buscar en la página" placeholder="Busca un tema para aprender..." autocomplete="off">
+            </div>
+            <div id="search-results"></div>
+          </div>
+          <div class="top-actions">
+            <button type="button" id="theme-toggle" aria-label="Activar modo oscuro">☼</button>
+            <span class="avatar">C</span>
+          </div>
+        </header>
+
+        <div class="page-content" id="page-content">
+          <section class="hero-panel reference-hero" aria-label="Banner de la Independencia de Colombia">
+            <img class="hero-banner" src="https://i.ibb.co/RGDYvPj8/banne.jpg" alt="Una aventura por nuestra historia: panel con el título La Independencia de Colombia, un tucán, un guacamayo rojo, una tortuga azul, flores exóticas y un sombrero vueltiao.">
+            <div class="sr-only"><h1>La Independencia de Colombia</h1><p>Este es tu espacio para descubrir, imaginar y celebrar los momentos que construyeron nuestro país.</p></div>
+            <button type="button" class="hero-hit-target hero-hit-start" aria-label="Comenzar: explorar la historia" data-section="Historia"></button>
+            <button type="button" class="hero-hit-target hero-hit-more" aria-label="Conocer más sobre la Independencia" data-section="Independencia"></button>
+          </section>
+          <section class="intro-layout">
+            <article class="intro-card">
+              <div class="intro-visual"><span class="visual-sun">☼</span><span class="visual-label">ZONA PARA TU<br>IMAGEN PRINCIPAL</span><span class="visual-hill"></span></div>
+              <div class="intro-text">
+                <span class="eyebrow blue">Para empezar</span>
+                <h2>Una historia que vive en todos</h2>
+                <p>Reemplaza este texto por una introducción breve y cercana para tus estudiantes.</p>
+                <button type="button" class="outline-button" data-section="Historia">Continuar <span>→</span></button>
+              </div>
+            </article>
+            <div class="topic-grid">
+              <button type="button" data-section="Causas"><span class="topic-icon">◌</span><span><strong>Causas</strong><small>¿Por qué comenzó?</small></span><b>↗</b></button>
+              <button type="button" data-section="Independencia"><span class="topic-icon">▤</span><span><strong>Antecedentes</strong><small>Las pistas del pasado</small></span><b>↗</b></button>
+              <button type="button" data-section="Personajes"><span class="topic-icon">♙</span><span><strong>Personajes</strong><small>Quienes hicieron historia</small></span><b>↗</b></button>
+              <button type="button" data-section="Independencia"><span class="topic-icon">✦</span><span><strong>Hechos importantes</strong><small>Momentos para recordar</small></span><b>↗</b></button>
+              <button type="button" data-section="Desarrollo"><span class="topic-icon">➜</span><span><strong>Desarrollo</strong><small>El camino a la libertad</small></span><b>↗</b></button>
+              <button type="button" data-section="Independencia"><span class="topic-icon">◎</span><span><strong>Consecuencias</strong><small>Lo que cambió</small></span><b>↗</b></button>
+            </div>
+          </section>
+          <section class="content-heading">
+            <div><span class="eyebrow blue">Tu ruta de aprendizaje</span><h2>Conoce los grandes momentos</h2></div>
+            <button type="button" class="view-all" data-section="Historia">Ver todos <span>→</span></button>
+          </section>
+          <section class="moment-grid">
+            <article><span class="moment-number">01</span><div><span class="moment-icon yellow">✦</span><h3>Las primeras ideas</h3><p>Espacio para presentar los antecedentes y las voces que inspiraron el cambio.</p></div></article>
+            <article><span class="moment-number">02</span><div><span class="moment-icon red">♙</span><h3>Personajes valientes</h3><p>Conoce a quienes imaginaron una Colombia libre y soberana.</p></div></article>
+            <article><span class="moment-number">03</span><div><span class="moment-icon blue-icon">➜</span><h3>El camino a Boyacá</h3><p>Viaja por las campañas y decisiones que marcaron la historia.</p></div></article>
+          </section>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <div class="profile-line"><div><small>Hola, explorador</small><strong>Aprendamos juntos <span>✦</span></strong></div><span class="sunny">☼</span></div>
+        <div class="featured-card">
+          <span class="eyebrow">Dato destacado</span>
+          <strong>La libertad se<br><em>construye en equipo.</em></strong>
+          <p>Descubre cómo muchas personas hicieron posible este gran cambio.</p>
+          <button type="button" data-section="Personajes">Explorar <span>→</span></button>
+        </div>
+        <div class="timeline-section">
+          <div class="side-title"><h2>Fechas para recordar</h2><span>•••</span></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div><b>20 JUL</b><strong>El grito de independencia</strong><p>Una fecha que encendió el deseo de libertad.</p></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div><b>1819</b><strong>Campaña Libertadora</strong><p>El ejército recorrió los Andes con valentía.</p></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div><b>7 AGO</b><strong>Batalla de Boyacá</strong><p>La victoria abrió el camino a una nueva nación.</p></div></div>
+        </div>
+        <div class="history-fact"><span>✦</span><div><small>Dato histórico</small><p>La Batalla de Boyacá ocurrió el 7 de agosto de 1819.</p></div></div>
+      </aside>
+    </main>
+  </body>
+</html>
