@@ -64,7 +64,7 @@ const characters = [
   ['Antonio Nariño', 'Fue un precursor de la independencia. Tradujo y difundió los Derechos del Hombre, promoviendo las ideas de libertad e igualdad.', 'https://images.openai.com/static-rsc-4/mI0h4haMRl-6wHXO41b0U4KsZHEo9PjYcSaVLszrJI593E0Og8HudRaHfa-nKcT2whUEf1ZOsYy3-Fo7kYqAWbB-TiYQBy08TgoCQs0wylAsPYKD9bhPyfhGhk6lumgoucdcaAH8fwTRkIwzy54KOIvC2FV94hygeCeGNJ407RaXLFxqou1gaeqyyK2dNX0L?purpose=fullsize'],
   ['Policarpa Salavarrieta', 'Conocida como La Pola, ayudó a los patriotas como espía. Fue capturada y fusilada en 1817, convirtiéndose en símbolo de valentía.', 'https://images.openai.com/static-rsc-4/J360THryPFPC24veeeAeTu-c3qGYEqbu6FsjHIqvW8NnTa7vOmUVWT753rfx_PSd3i7p0n-FqrjulSrzKxf1d8VSq5U5bjFb71XprVraxnCyI8kuAzNG3UcN7XnlxOUMv13XDlVKt-QlPJPsrMUS6u0-ahU_X-Sns-D1J7W8StM39gA4F4aHFiNag1x95Bo4?purpose=fullsize'],
   ['Camilo Torres Tenorio', 'Fue un importante líder político. Defendió los derechos de los criollos y apoyó el movimiento independentista.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfDSjFboo0H5v7_NQEzJ1EW_wKMOBJszzraXcoNjn2Cg&s=10'],
-  ['José Acevedo y Gómez', 'Fue un líder del 20 de julio de 1810. Su discurso motivó al pueblo de Bogotá a apoyar el movimiento de independencia.', 'https://diccionariodecolombia.expert/wp-content/uploads/2020/02/Acevedo-y-G%C3%B0mez-Jos%C3%A9.jpg']
+  ['José Acevedo y Gómez', 'Fue un líder del 20 de julio de 1810. Su discurso motivó al pueblo de Bogotá a apoyar el movimiento de independencia.', 'https://diccionariodecolombia.expert/wp-content/uploads/2020/02/Acevedo-y-G%C3%B3mez-Jos%C3%A9.jpg']
 ];
 
 const timeline = [
