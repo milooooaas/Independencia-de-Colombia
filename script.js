@@ -200,7 +200,7 @@ function renderGames() {
     <section class="genially-game" aria-labelledby="genially-game-title-${index + 1}">
       <h2 id="genially-game-title-${index + 1}">${game.title}</h2>
       ${isLocalFile
-        ? '<p class="genially-local-notice">El navegador no permite mostrar este juego incrustado al abrir el archivo local. Ábrelo con el botón para jugar.</p>'
+        ? '<img class="genially-local-notice-image" src="https://i.ibb.co/35jXsyDN/Whats-App-Image-2026-10-18-at-7-54-04-PM.jpg" alt="Aviso para jugar los juegos de Genially desde esta página local">'
         : `<div class="genially-game-viewport">
             <iframe
               class="genially-game-frame"
