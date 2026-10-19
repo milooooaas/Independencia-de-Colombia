@@ -233,6 +233,7 @@ function renderSection(section) {
   const isCharacters = section === 'Personajes';
   const isGames = section === 'Juegos';
   const isHistory = section === 'Historia';
+  const isCauses = section === 'Causas';
   const isReading = ['Historia', 'Causas', 'Desarrollo'].includes(section);
   const contents = isReading
     ? renderReadingSection(section)
@@ -255,10 +256,12 @@ function renderSection(section) {
     <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}">
       ${isCharacters
         ? '<img src="https://i.ibb.co/7ds29fjL/personajes.png" alt="Banner de personajes">'
-        : `<h1>${section}</h1>${isHistory || isGames
+        : `<h1>${section}</h1>${isHistory || isGames || isCauses
           ? `<img class="section-heading-banner-image" src="${isGames
             ? 'https://i.ibb.co/35jXsyDN/Whats-App-Image-2026-10-18-at-7-54-04-PM.jpg'
-            : 'https://i.ibb.co/xtcDQk4n/Whats-App-Image-2026-10-18-at-7-55-32-PM.jpg'}" alt="Imagen de bienvenida para la sección ${section}">`
+            : isCauses
+              ? 'https://i.ibb.co/WCrW1Qv/Whats-App-Image-2026-10-18-at-7-55-31-PM.jpg'
+              : 'https://i.ibb.co/xtcDQk4n/Whats-App-Image-2026-10-18-at-7-55-32-PM.jpg'}" alt="Imagen de bienvenida para la sección ${section}">`
           : `<p>${section === 'Juegos'
             ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
             : sectionDescription}</p>`}`}
