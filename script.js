@@ -219,6 +219,13 @@ function renderGames() {
 }
 
 function renderResources(section) {
+  if (section === 'Videos') {
+    return `<div class="video-card">
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/V-bp83U8odU" title="Video sobre la Independencia de Colombia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+      <a class="video-launch" href="https://youtu.be/V-bp83U8odU?si=_zb4x6sXsW4fhtaO" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+    </div>`;
+  }
+
   return `<div class="resource-grid">${['Espacio para tu imagen', 'Tu video o narración', 'Actividad para explorar'].map((item) => `
     <div class="resource-card"><span>✦</span><strong>${item}</strong><p>Agrega aquí el contenido de la sección ${section.toLowerCase()}.</p></div>`).join('')}
   </div>`;
