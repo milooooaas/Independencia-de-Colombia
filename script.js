@@ -8,8 +8,7 @@ const menu = [
   ['Desarrollo', '➜'],
   ['Personajes', '♙'],
   ['Juegos', '✹'],
-  ['Videos', '▶'],
-  ['Recursos', '▣']
+  ['Videos', '▶']
 ];
 
 const quickTopics = [
@@ -48,7 +47,15 @@ La multitud comenzó a reunirse en la plaza y exigió la creación de una Junta 
 9. El Grito de Independencia: El 20 de julio de 1810, el incidente del florero de Llorente en Bogotá desencadenó una revuelta popular y marcó el inicio de la lucha por la independencia de Colombia.
 
 10. Liderazgo de Simón Bolívar: El liderazgo de Simón Bolívar fue fundamental para la independencia de Colombia y de otros países de América Latina.`,
-  Desarrollo: 'Aquí puedes narrar cómo avanzó el proceso: las primeras juntas, las campañas, los encuentros y las decisiones que llevaron a la libertad.'
+  Desarrollo: `La Independencia de Colombia fue un proceso histórico que comenzó debido al descontento de los habitantes de la Nueva Granada por los altos impuestos, las desigualdades sociales y el dominio de España. Los criollos, aunque habían nacido en América, tenían menos oportunidades de ocupar cargos importantes que los españoles.
+
+El 20 de julio de 1810 ocurrió el Grito de Independencia en Santa Fe, cuando un conflicto relacionado con el préstamo de un florero provocó una protesta popular. Como resultado, se formó una junta de gobierno que buscaba mayor autonomía frente a España. Sin embargo, los líderes independentistas tuvieron desacuerdos sobre cómo organizar el territorio, periodo conocido como la Patria Boba.
+
+Entre 1815 y 1816, España intentó recuperar el control de sus colonias mediante una campaña militar dirigida por Pablo Morillo. Durante esta etapa, muchos líderes patriotas fueron perseguidos y ejecutados. A pesar de esto, los movimientos independentistas continuaron luchando por la libertad.
+
+En 1819, Simón Bolívar organizó una campaña militar para liberar la Nueva Granada, con el apoyo de Francisco de Paula Santander y otros patriotas. Después de importantes enfrentamientos, el ejército libertador logró la victoria en la Batalla de Boyacá, el 7 de agosto de 1819, que fue decisiva para asegurar la independencia de la Nueva Granada.
+
+Finalmente, el 17 de diciembre de 1819 se creó la República de Colombia, conocida como la Gran Colombia, que reunió varios territorios de Sudamérica. La independencia fue el resultado de años de lucha y sacrificio, y permitió avanzar hacia la construcción de un gobierno propio, aunque todavía quedaron muchos desafíos políticos y sociales por resolver.`
 };
 
 const characters = [
@@ -155,16 +162,15 @@ function renderReadingSection(section) {
     ? 'Una historia para contar'
     : section === 'Causas'
       ? '¿Qué provocó el cambio?'
-      : 'El camino hacia la libertad';
+      : 'Desarrollo de la Independencia de Colombia 🇨🇴';
 
   return `<div class="reading-layout">
     <article class="reading-card">
-      ${section === 'Causas' ? '' : '<span class="placeholder-tag">ZONA DE TEXTO EDITABLE</span>'}
+      ${['Causas', 'Desarrollo'].includes(section) ? '' : '<span class="placeholder-tag">ZONA DE TEXTO EDITABLE</span>'}
       <h2>${section === 'Causas' ? '10 causas de la Independencia' : heading}</h2>
       ${readingCopy[section].split('\n\n').map((paragraph) => section === 'Causas'
         ? `<p class="cause-item">${paragraph.replace(/^(\d+\.\s[^:]+:)/, '<strong>$1</strong>')}</p>`
         : `<p>${paragraph}</p>`).join('')}
-      ${section === 'Desarrollo' ? '<p class="editable-copy">Puedes reemplazar este párrafo con tu texto. Mantén las ideas cortas y agrega subtítulos para que sea fácil de leer.</p>' : ''}
     </article>
     <div class="puppet-card">
       <span class="placeholder-tag">SIMÓN BOLÍVAR</span>
@@ -246,6 +252,7 @@ function renderSection(section) {
           ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
           : section === 'Causas' ? 'Conoce los factores políticos, económicos e ideológicos que impulsaron el proceso de independencia.'
             : section === 'Independencia' ? 'Recorre los acontecimientos que marcaron el camino hacia la independencia.'
+              : section === 'Desarrollo' ? 'Sigue las etapas y los acontecimientos principales del proceso de independencia.'
             : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.'}</p>`}
     </div>
     ${contents}
