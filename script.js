@@ -29,7 +29,25 @@ Al mediodía, Luis de Rubio se acercó a la tienda del comerciante español Jos�
 Francisco José de Caldas y Antonio Morales intervinieron en el conflicto, que fue aprovechado por algunos criollos para movilizar a la población contra las autoridades españolas. La discusión del florero se convirtió en el detonante de una protesta mucho más profunda, pues existía un descontento acumulado por la desigualdad política, las restricciones económicas y la falta de participación de los criollos en los cargos importantes del gobierno colonial.
 
 La multitud comenzó a reunirse en la plaza y exigió la creación de una Junta de Gobierno. Ante la presión popular, se convocó un cabildo extraordinario y se redactó el Acta del 20 de Julio de 1810, mediante la cual se estableció una Junta Suprema en nombre del rey Fernando VII, quien se encontraba prisionero de Napoleón Bonaparte. Aunque inicialmente no se declaró una independencia absoluta de España, este acontecimiento permitió que los criollos comenzaran a ejercer el poder político de manera autónoma.`,
-  Causas: 'Aquí puedes explicar las causas de la Independencia: las nuevas ideas, los cambios políticos y el deseo de participar en las decisiones del territorio.',
+  Causas: `1. Exclusión de los criollos: Los criollos, descendientes de españoles nacidos en América, no podían acceder a los altos cargos políticos y administrativos, lo que generó un gran descontento.
+
+2. Restricciones económicas: La Corona española imponía un monopolio comercial que impedía el libre desarrollo económico de las colonias.
+
+3. Altos impuestos: Los habitantes de las colonias debían pagar numerosos impuestos a la Corona, lo que generaba malestar y resentimiento.
+
+4. Influencia de la Ilustración: Las ideas de libertad, igualdad y soberanía popular, difundidas por la Ilustración, influyeron en los criollos y despertaron su deseo de independencia.
+
+5. Revolución Francesa: El ejemplo de la Revolución Francesa y sus ideales de libertad, igualdad y fraternidad inspiraron a los independentistas colombianos.
+
+6. Independencia de Estados Unidos: La independencia de las trece colonias británicas en América del Norte demostró que era posible alcanzar la independencia y construir una nación libre.
+
+7. Invasión napoleónica a España: La invasión de España por Napoleón Bonaparte creó un vacío de poder y debilitó la autoridad de la Corona española sobre sus colonias.
+
+8. Memorial de Agravios: Este documento, redactado por los criollos en 1809, expresaba sus quejas y demandas ante la Corona española, y sentó las bases para los movimientos independentistas.
+
+9. El Grito de Independencia: El 20 de julio de 1810, el incidente del florero de Llorente en Bogotá desencadenó una revuelta popular y marcó el inicio de la lucha por la independencia de Colombia.
+
+10. Liderazgo de Simón Bolívar: El liderazgo de Simón Bolívar fue fundamental para la independencia de Colombia y de otros países de América Latina.`,
   Desarrollo: 'Aquí puedes narrar cómo avanzó el proceso: las primeras juntas, las campañas, los encuentros y las decisiones que llevaron a la libertad.'
 };
 
@@ -123,10 +141,12 @@ function renderReadingSection(section) {
 
   return `<div class="reading-layout">
     <article class="reading-card">
-      <span class="placeholder-tag">ZONA DE TEXTO EDITABLE</span>
-      <h2>${heading}</h2>
-      ${readingCopy[section].split('\n\n').map((paragraph) => `<p>${paragraph}</p>`).join('')}
-      ${section === 'Historia' ? '' : '<p class="editable-copy">Puedes reemplazar este párrafo con tu texto. Mantén las ideas cortas y agrega subtítulos para que sea fácil de leer.</p>'}
+      ${section === 'Causas' ? '' : '<span class="placeholder-tag">ZONA DE TEXTO EDITABLE</span>'}
+      <h2>${section === 'Causas' ? '10 causas de la Independencia' : heading}</h2>
+      ${readingCopy[section].split('\n\n').map((paragraph) => section === 'Causas'
+        ? `<p class="cause-item">${paragraph.replace(/^(\d+\.\s[^:]+:)/, '<strong>$1</strong>')}</p>`
+        : `<p>${paragraph}</p>`).join('')}
+      ${section === 'Desarrollo' ? '<p class="editable-copy">Puedes reemplazar este párrafo con tu texto. Mantén las ideas cortas y agrega subtítulos para que sea fácil de leer.</p>' : ''}
     </article>
     <div class="puppet-card">
       <span class="placeholder-tag">SIMÓN BOLÍVAR</span>
@@ -202,7 +222,10 @@ function renderSection(section) {
     <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}">
       ${isCharacters
         ? '<img src="https://i.ibb.co/7ds29fjL/personajes.png" alt="Banner de personajes">'
-        : `<span class="eyebrow blue">Estás explorando</span><h1>${section}</h1><p>${section === 'Juegos' ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.') : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.'}</p>`}
+        : `<span class="eyebrow blue">Estás explorando</span><h1>${section}</h1><p>${section === 'Juegos'
+          ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
+          : section === 'Causas' ? 'Conoce los factores políticos, económicos e ideológicos que impulsaron el proceso de independencia.'
+            : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.'}</p>`}
     </div>
     ${contents}
   </section>`;
