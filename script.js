@@ -61,9 +61,14 @@ const characters = [
 ];
 
 const timeline = [
-  ['20 JUL', 'El grito de independencia', 'Una fecha que encendió el deseo de libertad.'],
-  ['1819', 'Campaña Libertadora', 'El ejército recorrió los Andes con valentía.'],
-  ['7 AGO', 'Batalla de Boyacá', 'La victoria abrió el camino a una nueva nación.']
+  ['1781', 'Revolución de los Comuneros', 'Fue una protesta contra los altos impuestos y los abusos de las autoridades españolas. Se convirtió en un antecedente importante de la independencia.', 'https://images.openai.com/static-rsc-4/O4E4xfXzJDpmqnDh-u8GtCYfl6gYNHfSmDcgCbM1dnfpQ2sX1DRSzpPSppvpqN2ybVGQm43RplkC1_DREF57ESDkQW6OEO32MDTbWRnKeGo-2vTMwqGobGYnVidNvp0QrskRYePUngfEkyLsyhzs5gpYVks_A1ZRjAMxFZbcbow?purpose=inline', 'Qué hizo Manuela Beltrán'],
+  ['20 de julio de 1810', 'Grito de Independencia', 'En Santa Fe, un conflicto relacionado con el préstamo de un florero provocó una protesta popular y llevó a la creación de una junta de gobierno.', 'https://images.openai.com/static-rsc-4/1dcpcUI7sBj0ri4TraTusAEGOG3HoHql7j_qGP-8i3ksl1JtM-dDRD3XfD4AavdraoMI16xXQBwldhU6bK7ZbPg7QVYSvwoYpRwYIish4zuxpGYtMAxMRORqrBixj9A-Hn7o_-uHPlY9ggIl1dVkUULvJDQYV-ByZiYH63RXDWo?purpose=inline', '20 de julio - Independencia de Colombia'],
+  ['1810-1816', 'La Patria Boba', 'Los patriotas tuvieron desacuerdos sobre cómo organizar el nuevo gobierno. Estas divisiones debilitaron la lucha contra España.', 'https://images.openai.com/static-rsc-4/c8GgWrQRcbqBNb-RexJHC7JWCW6MYtTQW2RtAnwA9AiN5s5AIWL0IFCjtdQ99s4tnP-veP8fn_bdSN_1JI3EfTxtqLHtW650RSrFznEHwHwh4EiaWiSuA0DQjF8_E3HYRq8WEmCMOQY8XMMNljGl8qVtjLLLNwEtWbnHD4Bqf-o?purpose=inline', 'Storyboard sobre historia'],
+  ['1815-1816', 'Reconquista española', 'Las tropas españolas, dirigidas por Pablo Morillo, retomaron el control de gran parte del territorio y persiguieron a los líderes independentistas.', 'https://images.openai.com/static-rsc-4/-xwdEWhyUnsxMXyPsW-BLGbP8cRrwpvKAPfaC5M66LKZp_yUZ-gWjcAEAPSQHvUj1rbx6QGiR5Tycfwu6KsjIGjq95Pgbk0EwJOa3J9qUdcghNW9W22MGW5Rder-l9sdLRFrAmnwEb3P1vNuh844ZtENZtOUFoEhZYHXiW1Jl0g?purpose=inline', 'Historia de Bogotá'],
+  ['25 de julio de 1819', 'Batalla del Pantano de Vargas', 'El ejército libertador obtuvo una victoria importante durante la campaña que buscaba liberar la Nueva Granada.', 'https://images.openai.com/static-rsc-4/q9FHFin_Xb6KYTFJn0sYxG8PdtRQsfod5D5M74Ul_FqoybOCRwLAHAIJhkEmOEhU32CPSpdUEYOkOSLBH323PmwmaNoGp8e4Iq2umo4kqVzu4uB1xN8Rspli8L7hQWbvgurd5cFeKfa_JqXPYjawggti4zXEiykkUuOezmkJ-mA?purpose=inline', 'Batalla del Pantano de Vargas'],
+  ['7 de agosto de 1819', 'Batalla de Boyacá', 'El ejército liderado por Simón Bolívar derrotó a las tropas realistas. Esta victoria fue decisiva para lograr la independencia de la Nueva Granada.', 'https://images.openai.com/static-rsc-4/njHckURVZ_nzWFksx6rR4hO-lX9oFrimKLB16rJuItbr_LMal9wdZ2WPLTWO9900jQb2pLyQbBthmlJ4t1guBr3kFMmID31-XnntJRbsY1PK5NmxmjTUtc3rTjFvQwQp7Jvoiu9IIpDXBCT3aXO0pEhaRFzFFsJn4Ms2La4LzjE?purpose=inline', 'Batalla de Boyacá'],
+  ['17 de diciembre de 1819', 'Creación de la Gran Colombia', 'Se aprobó la creación de la República de Colombia, conocida como la Gran Colombia, que reunió territorios de las actuales Colombia, Venezuela, Ecuador y Panamá.', 'https://images.openai.com/static-rsc-4/bCXWav_IIcl3czehDm31uT3T2FwMgH4Rpn3FHrchjdxrh8uH0qCnE_s4RLNSQosI3Mz1HWX1ZW_bbnBNQk639iKzLzSV4tOCEBYjgSDOHSr_KULU3p060II2FadcEiiIAkX792wpdKjwkrTEstl7ZyzGYKwLuclKNzrnoIY7Od0?purpose=inline', 'Congreso de Angostura'],
+  ['1824', 'Consolidación de la independencia', 'La victoria patriota en la batalla de Ayacucho debilitó decisivamente el dominio español en Sudamérica y contribuyó al fin del poder colonial en la región.', 'https://images.openai.com/static-rsc-4/0W1VVVkGYdx5F_70jlBlpAmirzLne8HUTZZ2j6tMjdmRo_OlfGKuK5Hs1IPDY82dNagO2wcfJlFlF5jl2-jqxBKY158wbwToFdiAlPbgBHGAN_OEAv-UtoREDEk0hFzrzjIS0eqU1-_Zf1vadqZYhB2m_4YkejaoHyLGQTfhMIQ?purpose=inline', 'Batalla de Ayacucho']
 ];
 
 const shell = document.querySelector('#app');
@@ -128,6 +133,19 @@ function renderCharacters() {
       <h2>${name}</h2>
       <div class="character-photo"><img src="${imageUrl}" alt="Retrato de ${name}"></div>
       <p>${description}</p>
+    </article>`).join('')}
+  </div>`;
+}
+
+function renderIndependence() {
+  return `<div class="independence-timeline">${timeline.map(([date, title, description, imageUrl, imageAlt]) => `
+    <article class="independence-event">
+      <img src="${imageUrl}" alt="${imageAlt}" loading="lazy">
+      <div class="independence-event-copy">
+        <span class="eyebrow blue">${date}</span>
+        <h2>${title}</h2>
+        <p>${description}</p>
+      </div>
     </article>`).join('')}
   </div>`;
 }
@@ -214,6 +232,8 @@ function renderSection(section) {
     ? renderReadingSection(section)
     : isCharacters
       ? renderCharacters()
+      : section === 'Independencia'
+        ? renderIndependence()
       : section === 'Juegos'
         ? renderGames()
         : renderResources(section);
@@ -225,6 +245,7 @@ function renderSection(section) {
         : `<span class="eyebrow blue">Estás explorando</span><h1>${section}</h1><p>${section === 'Juegos'
           ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
           : section === 'Causas' ? 'Conoce los factores políticos, económicos e ideológicos que impulsaron el proceso de independencia.'
+            : section === 'Independencia' ? 'Recorre los acontecimientos que marcaron el camino hacia la independencia.'
             : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.'}</p>`}
     </div>
     ${contents}
