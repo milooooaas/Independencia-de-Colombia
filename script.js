@@ -199,9 +199,7 @@ function renderGames() {
   return `<div class="genially-games">${games.map((game, index) => `
     <section class="genially-game" aria-labelledby="genially-game-title-${index + 1}">
       <h2 id="genially-game-title-${index + 1}">${game.title}</h2>
-      ${isLocalFile
-        ? '<img class="genially-local-notice-image" src="https://i.ibb.co/35jXsyDN/Whats-App-Image-2026-10-18-at-7-54-04-PM.jpg" alt="Aviso para jugar los juegos de Genially desde esta página local">'
-        : `<div class="genially-game-viewport">
+      <div class="genially-game-viewport">
             <iframe
               class="genially-game-frame"
               src="${game.url}"
@@ -212,7 +210,7 @@ function renderGames() {
               allowfullscreen
               scrolling="yes"
               loading="eager"></iframe>
-          </div>`}
+      </div>
       <a class="genially-game-launch" href="${game.url}" target="_blank" rel="noopener noreferrer">
         ${isLocalFile ? 'Jugar ahora en Genially ↗' : 'Abrir en Genially si no carga aquí ↗'}
       </a>
@@ -233,6 +231,7 @@ function renderSection(section) {
   }
 
   const isCharacters = section === 'Personajes';
+  const isGames = section === 'Juegos';
   const isReading = ['Historia', 'Causas', 'Desarrollo'].includes(section);
   const contents = isReading
     ? renderReadingSection(section)
@@ -243,17 +242,23 @@ function renderSection(section) {
       : section === 'Juegos'
         ? renderGames()
         : renderResources(section);
+  const sectionDescription = section === 'Causas'
+    ? 'Conoce los factores políticos, económicos e ideológicos que impulsaron el proceso de independencia.'
+    : section === 'Independencia'
+      ? 'Recorre los acontecimientos que marcaron el camino hacia la independencia.'
+      : section === 'Desarrollo'
+        ? 'Sigue las etapas y los acontecimientos principales del proceso de independencia.'
+        : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.';
 
   pageContent.innerHTML = `<section class="section-view">
     <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}">
       ${isCharacters
         ? '<img src="https://i.ibb.co/7ds29fjL/personajes.png" alt="Banner de personajes">'
-        : `<span class="eyebrow blue">Estás explorando</span><h1>${section}</h1><p>${section === 'Juegos'
-          ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
-          : section === 'Causas' ? 'Conoce los factores políticos, económicos e ideológicos que impulsaron el proceso de independencia.'
-            : section === 'Independencia' ? 'Recorre los acontecimientos que marcaron el camino hacia la independencia.'
-              : section === 'Desarrollo' ? 'Sigue las etapas y los acontecimientos principales del proceso de independencia.'
-            : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.'}</p>`}
+        : `<span class="eyebrow blue">Estás explorando</span><h1>${section}</h1>${isGames
+          ? '<img class="games-section-banner" src="https://i.ibb.co/35jXsyDN/Whats-App-Image-2026-10-18-at-7-54-04-PM.jpg" alt="Imagen de bienvenida para la sección Juegos">'
+          : `<p>${section === 'Juegos'
+            ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
+            : sectionDescription}</p>`}`}
     </div>
     ${contents}
   </section>`;
