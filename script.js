@@ -166,7 +166,6 @@ function renderReadingSection(section) {
 
   return `<div class="reading-layout">
     <article class="reading-card">
-      ${['Causas', 'Desarrollo'].includes(section) ? '' : '<span class="placeholder-tag">ZONA DE TEXTO EDITABLE</span>'}
       <h2>${section === 'Causas' ? '10 causas de la Independencia' : heading}</h2>
       ${readingCopy[section].split('\n\n').map((paragraph) => section === 'Causas'
         ? `<p class="cause-item">${paragraph.replace(/^(\d+\.\s[^:]+:)/, '<strong>$1</strong>')}</p>`
@@ -241,6 +240,7 @@ function renderSection(section) {
   const isGames = section === 'Juegos';
   const isHistory = section === 'Historia';
   const isCauses = section === 'Causas';
+  const isVideos = section === 'Videos';
   const isReading = ['Historia', 'Causas', 'Desarrollo'].includes(section);
   const contents = isReading
     ? renderReadingSection(section)
@@ -260,18 +260,18 @@ function renderSection(section) {
         : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.';
 
   pageContent.innerHTML = `<section class="section-view">
-    <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}">
+    <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}${isGames ? ' section-heading-games' : ''}${isVideos ? ' section-heading-videos' : ''}">
       ${isCharacters
         ? '<img src="https://i.ibb.co/7ds29fjL/personajes.png" alt="Banner de personajes">'
-        : `<h1>${section}</h1>${isHistory || isGames || isCauses
-          ? `<img class="section-heading-banner-image" src="${isGames
-            ? 'https://i.ibb.co/35jXsyDN/Whats-App-Image-2026-10-18-at-7-54-04-PM.jpg'
-            : isCauses
-              ? 'https://i.ibb.co/WCrW1Qv/Whats-App-Image-2026-10-18-at-7-55-31-PM.jpg'
-              : 'https://i.ibb.co/xtcDQk4n/Whats-App-Image-2026-10-18-at-7-55-32-PM.jpg'}" alt="Imagen de bienvenida para la sección ${section}">`
-          : `<p>${section === 'Juegos'
-            ? (window.location.protocol === 'file:' ? 'El navegador bloquea los juegos dentro de archivos locales. Usa “Jugar ahora” para abrir cada uno, o publica la página en una dirección web para jugarlos aquí mismo.' : 'Elige un juego para empezar. Si no carga dentro de la página, ábrelo directamente en Genially.')
-            : sectionDescription}</p>`}`}
+        : isVideos
+          ? '<h1 class="videos-title">Videos</h1><img class="section-heading-banner-image" src="https://i.ibb.co/ppQ1Yf0/vudweoo.jpg" alt="Imagen de la sección Juegos">'
+        : `<h1>${section}</h1>${isHistory || isCauses
+          ? `<img class="section-heading-banner-image" src="${isCauses
+            ? 'https://i.ibb.co/WCrW1Qv/Whats-App-Image-2026-10-18-at-7-55-31-PM.jpg'
+            : 'https://i.ibb.co/xtcDQk4n/Whats-App-Image-2026-10-18-at-7-55-32-PM.jpg'}" alt="Imagen de bienvenida para la sección ${section}">`
+          : section === 'Juegos'
+            ? ''
+            : `<p>${sectionDescription}</p>`}`}
     </div>
     ${contents}
   </section>`;
