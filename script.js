@@ -1,23 +1,23 @@
 'use strict';
 
 const menu = [
-  ['Inicio', '⌂'],
-  ['Independencia', '✦'],
-  ['Historia', '▤'],
-  ['Causas', '◌'],
-  ['Desarrollo', '➜'],
-  ['Personajes', '♙'],
-  ['Juegos', '✹'],
-  ['Videos', '▶']
+  ['Inicio', ''],
+  ['Independencia', ''],
+  ['Historia', ''],
+  ['Causas', ''],
+  ['Desarrollo', ''],
+  ['Personajes', ''],
+  ['Juegos', ''],
+  ['Videos', '']
 ];
 
 const quickTopics = [
-  ['Causas', '◌', '¿Por qué comenzó?'],
-  ['Antecedentes', '▤', 'Las pistas del pasado'],
-  ['Personajes', '♙', 'Quienes hicieron historia'],
-  ['Hechos importantes', '✦', 'Momentos para recordar'],
-  ['Desarrollo', '➜', 'El camino a la libertad'],
-  ['Consecuencias', '◎', 'Lo que cambió']
+  ['Causas', '', '¿Por qué comenzó?'],
+  ['Antecedentes', '', 'Las pistas del pasado'],
+  ['Personajes', '', 'Quienes hicieron historia'],
+  ['Hechos importantes', '', 'Momentos para recordar'],
+  ['Desarrollo', '', 'El camino a la libertad'],
+  ['Consecuencias', '', 'Lo que cambió']
 ];
 
 const readingCopy = {
