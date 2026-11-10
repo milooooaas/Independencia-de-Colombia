@@ -1,5 +1,6 @@
 'use strict';
 
+// Secciones del menú e íconos que las identifican.
 const menu = [
   ['Inicio', ''],
   ['Independencia', ''],
@@ -11,6 +12,7 @@ const menu = [
   ['Videos', '']
 ];
 
+// Temas y descripciones que aparecen como accesos rápidos y en la búsqueda.
 const quickTopics = [
   ['Causas', '', '¿Por qué comenzó?'],
   ['Antecedentes', '', 'Las pistas del pasado'],
@@ -20,6 +22,7 @@ const quickTopics = [
   ['Consecuencias', '', 'Lo que cambió']
 ];
 
+// Textos que se muestran en Historia, Causas y Desarrollo; también se leen en voz alta.
 const readingCopy = {
   Historia: `El 20 de julio de 1810 fue una fecha fundamental en la historia de Colombia, ya que marcó el inicio de un proceso político y social que condujo a la independencia del dominio español. Ese día era viernes de mercado y la Plaza Mayor de Santafé, actualmente Bogotá, estaba llena de comerciantes, campesinos y habitantes de diferentes sectores sociales.
 
@@ -58,6 +61,7 @@ En 1819, Simón Bolívar organizó una campaña militar para liberar la Nueva Gr
 Finalmente, el 17 de diciembre de 1819 se creó la República de Colombia, conocida como la Gran Colombia, que reunió varios territorios de Sudamérica. La independencia fue el resultado de años de lucha y sacrificio, y permitió avanzar hacia la construcción de un gobierno propio, aunque todavía quedaron muchos desafíos políticos y sociales por resolver.`
 };
 
+// Información que se usa para crear las tarjetas de personajes.
 const characters = [
   ['Simón Bolívar', 'Fue el principal líder militar de la independencia y es conocido como El Libertador. Lideró la campaña que terminó con la victoria patriota en la Batalla de Boyacá.', 'https://images.openai.com/static-rsc-4/PNSeH_Ar9r1h2-bGnr6OYk3G0qdu-uPt5f-AK229mcZu_jTGTYkgl9jRqOnQYRSJXWYbJH7dCc_V8NE4E0i1E39hYh-KEVHY4FxVqo_0pxGW9O_PvcZTUB8diI6atwligDH4KrgRKBBywkXA7rpU2nFETCceVeRHdCmvkgiFGbxPnXT1GdQoZsl5haCgEqJB?purpose=fullsize'],
   ['Francisco de Paula Santander', 'Fue un militar y político que luchó por la independencia. Ayudó a organizar el nuevo gobierno y fue conocido como El Hombre de las Leyes.', 'https://images.openai.com/static-rsc-4/HacWa_WhpfJL5TrOuBsDZZ_A5U62kNSkY0QnbsNatHu6lq8ZEPx0isEvktv2kF-jwK6mNIYvJlTzYBTq2AZgadQz939ojZoxcsdQtnQy2hlg_cgUzi18HymgZ70uwNaDG9FrypVfv00ZSuhkTgoDRlF6bfgUYqjCseHZi_s0hwaJalaNv5esRqcq-YsvNjvF?purpose=fullsize'],
@@ -67,6 +71,7 @@ const characters = [
   ['José Acevedo y Gómez', 'Fue un líder del 20 de julio de 1810. Su discurso motivó al pueblo de Bogotá a apoyar el movimiento de independencia.', 'https://diccionariodecolombia.expert/wp-content/uploads/2020/02/Acevedo-y-G%C3%B3mez-Jos%C3%A9.jpg']
 ];
 
+// Fechas, acontecimientos e imágenes de la línea de tiempo.
 const timeline = [
   ['1781', 'Revolución de los Comuneros', 'Fue una protesta contra los altos impuestos y los abusos de las autoridades españolas. Se convirtió en un antecedente importante de la independencia.', 'https://images.openai.com/static-rsc-4/O4E4xfXzJDpmqnDh-u8GtCYfl6gYNHfSmDcgCbM1dnfpQ2sX1DRSzpPSppvpqN2ybVGQm43RplkC1_DREF57ESDkQW6OEO32MDTbWRnKeGo-2vTMwqGobGYnVidNvp0QrskRYePUngfEkyLsyhzs5gpYVks_A1ZRjAMxFZbcbow?purpose=inline', 'Qué hizo Manuela Beltrán'],
   ['20 de julio de 1810', 'Grito de Independencia', 'En Santa Fe, un conflicto relacionado con el préstamo de un florero provocó una protesta popular y llevó a la creación de una junta de gobierno.', 'https://images.openai.com/static-rsc-4/1dcpcUI7sBj0ri4TraTusAEGOG3HoHql7j_qGP-8i3ksl1JtM-dDRD3XfD4AavdraoMI16xXQBwldhU6bK7ZbPg7QVYSvwoYpRwYIish4zuxpGYtMAxMRORqrBixj9A-Hn7o_-uHPlY9ggIl1dVkUULvJDQYV-ByZiYH63RXDWo?purpose=inline', '20 de julio - Independencia de Colombia'],
@@ -78,6 +83,7 @@ const timeline = [
   ['1824', 'Consolidación de la independencia', 'La victoria patriota en la batalla de Ayacucho debilitó decisivamente el dominio español en Sudamérica y contribuyó al fin del poder colonial en la región.', 'https://images.openai.com/static-rsc-4/0W1VVVkGYdx5F_70jlBlpAmirzLne8HUTZZ2j6tMjdmRo_OlfGKuK5Hs1IPDY82dNagO2wcfJlFlF5jl2-jqxBKY158wbwToFdiAlPbgBHGAN_OEAv-UtoREDEk0hFzrzjIS0eqU1-_Zf1vadqZYhB2m_4YkejaoHyLGQTfhMIQ?purpose=inline', 'Batalla de Ayacucho']
 ];
 
+// Conexiones con elementos del HTML y estado de la sección seleccionada.
 const shell = document.querySelector('#app');
 const pageContent = document.querySelector('#page-content');
 const homeContent = pageContent.innerHTML;
@@ -86,6 +92,7 @@ const searchResults = document.querySelector('#search-results');
 const themeToggle = document.querySelector('#theme-toggle');
 let activeSection = 'Inicio';
 
+// Convierte cada tema en la sección que debe abrirse al seleccionarlo.
 function topicSection(label) {
   if (menu.some(([name]) => name === label)) return label;
   return ['Antecedentes', 'Hechos importantes', 'Consecuencias'].includes(label)
@@ -93,6 +100,7 @@ function topicSection(label) {
     : 'Historia';
 }
 
+// Prepara los nombres y descripciones que puede encontrar el buscador.
 function searchableContent() {
   return [
     ...menu.map(([title]) => ({ title, description: `Explora la sección ${title}.`, section: title })),
@@ -100,6 +108,7 @@ function searchableContent() {
   ];
 }
 
+// Filtra la búsqueda y dibuja los botones con los resultados.
 function renderSearchResults() {
   const query = searchInput.value;
   searchResults.replaceChildren();
@@ -134,6 +143,7 @@ function renderSearchResults() {
   }
 }
 
+// Funciones que construyen el HTML de cada tipo de contenido.
 function renderCharacters() {
   return `<div class="characters-grid">${characters.map(([name, description, imageUrl]) => `
     <article class="character-card">
@@ -236,6 +246,7 @@ function renderResources(section) {
   </div>`;
 }
 
+// Reemplaza el contenido central por la sección elegida.
 function renderSection(section) {
   if (section === 'Inicio') {
     pageContent.innerHTML = homeContent;
@@ -290,6 +301,7 @@ function renderSection(section) {
   }
 }
 
+// Actualiza el menú activo y lleva la vista hasta el contenido.
 function selectSection(section) {
   if (!menu.some(([name]) => name === section)) return;
   shell.classList.toggle('game-mode', section === 'Juegos');
@@ -304,6 +316,7 @@ function selectSection(section) {
   document.querySelector('#contenido').scrollIntoView({ block: 'start' });
 }
 
+// Usa la voz del navegador para iniciar, pausar o reanudar la lectura.
 function readSectionAloud(event) {
   if (!('speechSynthesis' in window)) return;
 
@@ -345,6 +358,7 @@ function readSectionAloud(event) {
   speech.speak(voice);
 }
 
+// Gestiona los clics de navegación desde un solo evento del contenedor principal.
 shell.addEventListener('click', (event) => {
   const target = event.target;
   if (!(target instanceof Element)) return;
@@ -358,6 +372,7 @@ shell.addEventListener('click', (event) => {
   selectSection(sectionButton.dataset.section);
 });
 
+// Conecta los cambios del buscador y el botón de tema claro/oscuro.
 searchInput.addEventListener('input', renderSearchResults);
 themeToggle.addEventListener('click', () => {
   const darkMode = shell.classList.toggle('dark-mode');
