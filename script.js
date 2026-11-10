@@ -219,9 +219,15 @@ function renderGames() {
 
 function renderResources(section) {
   if (section === 'Videos') {
-    return `<div class="video-card">
-      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/V-bp83U8odU" title="Video sobre la Independencia de Colombia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
-      <a class="video-launch" href="https://youtu.be/V-bp83U8odU?si=_zb4x6sXsW4fhtaO" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+    return `<div class="videos-list">
+      <div class="video-card">
+        <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/V-bp83U8odU" title="Video sobre la Independencia de Colombia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+        <a class="video-launch" href="https://youtu.be/V-bp83U8odU?si=_zb4x6sXsW4fhtaO" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+      </div>
+      <div class="video-card">
+        <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/JCwLiGYWgQI" title="Video sobre la Independencia de Colombia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+        <a class="video-launch" href="https://youtu.be/JCwLiGYWgQI?si=qKFsVCpxWshdlbrz" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+      </div>
     </div>`;
   }
 
