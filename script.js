@@ -173,11 +173,11 @@ function renderReadingSection(section) {
     </article>
     <div class="puppet-card">
       <span class="placeholder-tag">SIMÓN BOLÍVAR</span>
-      <button type="button" class="puppet-zone" aria-label="Toca el personaje para escuchar la lectura">
+      <button type="button" class="puppet-zone" aria-label="Iniciar lectura">
         <img src="https://i.pinimg.com/originals/4a/b2/df/4ab2df4037221e9eacc2c3726195514d.png" alt="Personaje lector">
         <span class="puppet-label">Toca para escuchar</span>
       </button>
-      <p>Al tocar a Simón Bolívar, leerá esta sección en voz alta.</p>
+      <p>Toca para iniciar, pausar o reanudar la lectura.</p>
     </div>
   </div>`;
 }
@@ -301,21 +301,42 @@ function selectSection(section) {
 function readSectionAloud(event) {
   if (!('speechSynthesis' in window)) return;
 
+  const speech = window.speechSynthesis;
   const puppet = event.currentTarget;
   const label = puppet.querySelector('.puppet-label');
-  window.speechSynthesis.cancel();
+  if (speech.paused) {
+    speech.resume();
+    puppet.classList.add('is-speaking');
+    label.textContent = '¡Estoy leyendo!';
+    puppet.setAttribute('aria-label', 'Pausar lectura');
+    return;
+  }
+
+  if (speech.speaking) {
+    speech.pause();
+    puppet.classList.remove('is-speaking');
+    label.textContent = 'Lectura en pausa';
+    puppet.setAttribute('aria-label', 'Reanudar lectura');
+    return;
+  }
+
+  speech.cancel();
   const voice = new SpeechSynthesisUtterance(readingCopy[activeSection]);
   voice.lang = 'es-CO';
   voice.rate = 0.9;
   voice.onstart = () => {
     puppet.classList.add('is-speaking');
     label.textContent = '¡Estoy leyendo!';
+    puppet.setAttribute('aria-label', 'Pausar lectura');
   };
-  voice.onend = () => {
+  const resetPuppet = () => {
     puppet.classList.remove('is-speaking');
     label.textContent = 'Toca para escuchar';
+    puppet.setAttribute('aria-label', 'Iniciar lectura');
   };
-  window.speechSynthesis.speak(voice);
+  voice.onend = resetPuppet;
+  voice.onerror = resetPuppet;
+  speech.speak(voice);
 }
 
 shell.addEventListener('click', (event) => {
