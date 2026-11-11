@@ -2,14 +2,14 @@
 
 // Secciones del menú e íconos que las identifican.
 const menu = [
-  ['Inicio', ''],
-  ['Independencia', ''],
-  ['Historia', ''],
-  ['Causas', ''],
-  ['Desarrollo', ''],
-  ['Personajes', ''],
-  ['Juegos', ''],
-  ['Videos', '']
+  ['Inicio', '•'],
+  ['Independencia', '•'],
+  ['Historia', '•'],
+  ['Causas', '•'],
+  ['Desarrollo', '•'],
+  ['Personajes', '•'],
+  ['Juegos', '•'],
+  ['Videos', '•']
 ];
 
 // Temas y descripciones que aparecen como accesos rápidos y en la búsqueda.
