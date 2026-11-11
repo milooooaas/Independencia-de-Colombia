@@ -950,6 +950,18 @@ button {
   border: 1px solid #e3eef5;
   border-radius: 12px;
 }
+.moment-grid .antecedents-card {
+  background: #fffbea;
+  border-color: #f0e5bd;
+}
+.moment-grid .heroes-card {
+  background: #edf8ff;
+  border-color: #d7eaf6;
+}
+.moment-grid .freedom-card {
+  background: #fff1f1;
+  border-color: #f1dada;
+}
 .moment-number {
   color: #c1d1dd;
   font-size: 10px;
