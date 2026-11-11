@@ -254,6 +254,7 @@ input:where([type="button"]),
 input:where([type="reset"]),
 input:where([type="submit"]) {
   -webkit-appearance: button;
+  appearance: button;
   background-color: transparent;
   background-image: none;
 }
@@ -272,13 +273,16 @@ progress {
 }
 [type="search"] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
 }
 ::-webkit-search-decoration {
   -webkit-appearance: none;
+  appearance: none;
 }
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
+  appearance: button;
   font: inherit;
 }
 summary {
@@ -345,7 +349,6 @@ object,
 svg,
 video {
   display: block;
-  vertical-align: middle;
 }
 img,
 video {
@@ -523,6 +526,11 @@ button {
 .main-column {
   min-width: 0;
   padding: 27px 34px 48px;
+}
+.page-content.home-page {
+  padding: 18px;
+  background: linear-gradient(135deg, #f1faff 0%, #d9f1fb 52%, #b8e1f3 100%);
+  border-radius: 20px;
 }
 .topbar {
   justify-content: space-between;
@@ -1021,6 +1029,16 @@ button {
   width: 100%;
   height: auto;
   border-radius: inherit;
+}
+.featured-copy {
+  padding: 16px;
+}
+.featured-copy p {
+  max-width: none;
+  margin: 0 0 14px;
+  color: #73a0b2;
+  font-size: 11px;
+  line-height: 1.55;
 }
 .featured-card strong {
   display: block;
@@ -1592,6 +1610,9 @@ button {
 .dark-mode .app-shell,
 .dark-mode .main-column {
   background: #101c20;
+}
+.dark-mode .page-content.home-page {
+  background: linear-gradient(135deg, #17313c 0%, #1b4655 52%, #245a6d 100%);
 }
 .dark-mode .brand-mark,
 .dark-mode .character-card h2,
