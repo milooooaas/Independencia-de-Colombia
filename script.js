@@ -250,9 +250,11 @@ function renderResources(section) {
 function renderSection(section) {
   if (section === 'Inicio') {
     pageContent.innerHTML = homeContent;
+    pageContent.classList.add('home-page');
     return;
   }
 
+  pageContent.classList.remove('home-page');
   const isCharacters = section === 'Personajes';
   const isGames = section === 'Juegos';
   const isHistory = section === 'Historia';
@@ -277,18 +279,18 @@ function renderSection(section) {
         : 'Este espacio está listo para que agregues tu contenido, tus imágenes y tus actividades.';
 
   pageContent.innerHTML = `<section class="section-view">
-    <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}${isGames ? ' section-heading-games' : ''}${isVideos ? ' section-heading-videos' : ''}">
+    <div class="section-heading${isCharacters ? ' section-heading-banner' : ''}${isGames ? ' section-heading-games' : ''}">
       ${isCharacters
         ? '<img src="https://i.ibb.co/7ds29fjL/personajes.png" alt="Banner de personajes">'
         : isVideos
-          ? '<h1 class="videos-title">Videos</h1><img class="section-heading-banner-image" src="https://i.ibb.co/ppQ1Yf0/vudweoo.jpg" alt="Imagen de la sección Juegos">'
-        : `<h1>${section}</h1>${isHistory || isCauses
+          ? '<img class="section-heading-banner-image" src="https://i.ibb.co/ppQ1Yf0/vudweoo.jpg" alt="Imagen de la sección Juegos">'
+        : isGames
+          ? '<img class="section-heading-banner-image" src="https://i.ibb.co/ks20CxNj/juegoos.jpg" alt="Banner de la sección Juegos">'
+        : `${isHistory || isCauses
           ? `<img class="section-heading-banner-image" src="${isCauses
             ? 'https://i.ibb.co/WCrW1Qv/Whats-App-Image-2026-10-18-at-7-55-31-PM.jpg'
             : 'https://i.ibb.co/xtcDQk4n/Whats-App-Image-2026-10-18-at-7-55-32-PM.jpg'}" alt="Imagen de bienvenida para la sección ${section}">`
-          : section === 'Juegos'
-            ? ''
-            : `<p>${sectionDescription}</p>`}`}
+          : `<h1>${section}</h1><p>${sectionDescription}</p>`}`}
     </div>
     ${contents}
   </section>`;
