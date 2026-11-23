@@ -7,13 +7,28 @@
     <meta name="description" content="Un espacio interactivo para aprender sobre la Independencia de Colombia.">
     <title>Elaboracion de ova sobre la independencia de colombia:causas,desarrollo e Historia</title>
     <!-- Estilos visuales y comportamiento interactivo. -->
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./mobile.css">
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css?v=visible-global-bg">
+    <link rel="stylesheet" href="./mobile.css?v=visible-global-bg">
+    <script src="./script.js?v=visible-global-bg" defer></script>
   </head>
   <body>
+    <div class="global-atmosphere" aria-hidden="true">
+      <span class="global-orb global-orb-one"></span>
+      <span class="global-orb global-orb-two"></span>
+      <span class="global-orb global-orb-three"></span>
+      <span class="global-particles"></span>
+    </div>
+    <div class="loading-screen" id="loading-screen" role="status" aria-label="Cargando la página">
+      <div class="loading-screen__content">
+        <!-- Enlace directo de ImgBB; reemplázalo por https://i.ibb.co/... si cambias la imagen. -->
+        <img class="loading-screen__image" src="https://i.ibb.co/jqq0fnJ/colombia.png" alt="Colombia">
+        <div class="loading-progress" role="progressbar" aria-label="Progreso de carga" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span class="loading-progress__fill" id="loading-progress"></span>
+        </div>
+      </div>
+    </div>
     <!-- Aplicación completa: menú lateral, contenido central y panel de información. -->
-    <main class="app-shell" id="app">
+    <main class="app-shell" id="app" aria-busy="true" inert>
       <!-- Navegación: botones que abren las secciones de aprendizaje. -->
       <aside class="sidebar">
         <div class="brand-mark">
